@@ -44,6 +44,7 @@
 
 ## Phase 1 — PM Clarify（需求澄清）
 
+必须加载并严格执行：
 调用：`.codex/agents/pm.md`
 
 目标：
