@@ -1,11 +1,12 @@
-# Codex 工作流说明
+# Codex 工作指南
 
-推荐使用方式：
+启动：
 
-1. 启动 codex CLI
-2. 加载规则
-3. 选择 skill
-4. 执行任务
+codex
+
+加载规则：
+
+Follow AGENTS.md and .codex rules
 
 示例：
 
