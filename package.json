@@ -2,13 +2,14 @@
   "name": "desktop-to-do-list",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
+  "type": "commonjs",
   "main": "dist/main/main.js",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron -r ts-node/register ./src/main/main.ts\"",
+    "dev": "start \"vite\" cmd /c vite && npm run dev:electron",
+    "dev:electron": "wait-on tcp:5173 && cross-env NODE_ENV=development electron .",
     "build:main": "tsc -p tsconfig.json",
     "build:renderer": "vite build",
     "build": "npm run build:main && npm run build:renderer && electron-builder",
@@ -27,21 +28,27 @@
     "@types/node": "^25.3.3",
     "@vitejs/plugin-vue": "^6.0.4",
     "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
     "electron": "^40.7.0",
     "electron-builder": "^26.8.1",
+    "ts-node": "^10.9.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
-    "wait-on": "^9.0.4",
-    "ts-node": "^10.9.1"
+    "wait-on": "^9.0.4"
   },
   "build": {
     "appId": "com.example.representative-tasks",
-    "files": ["dist/**/*", "package.json"],
+    "files": [
+      "dist/**/*",
+      "package.json"
+    ],
     "directories": {
       "output": "dist_electron"
     },
     "win": {
-      "target": ["nsis"]
+      "target": [
+        "nsis"
+      ]
     }
   }
 }

@@ -7,9 +7,9 @@ declare global {
       notifyComplete: (taskId: string) => void;
       notifySnooze: (taskId: string, minutes?: number) => void;
       requestTrayAction: (action: TrayAction) => void;
-      onReminder: (callback: (task: TaskRecord) => void): void;
-      onNotificationClick: (callback: (taskId: string) => void): void;
-      onTrayAction: (callback: (action: TrayAction) => void): void;
+      onReminder: (callback: (task: TaskRecord) => void) => void;
+      onNotificationClick: (callback: (taskId: string) => void) => void;
+      onTrayAction: (callback: (action: TrayAction) => void) => void;
     };
   }
 }

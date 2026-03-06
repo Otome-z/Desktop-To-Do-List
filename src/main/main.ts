@@ -103,11 +103,11 @@ function createMainWindow() {
     }
   });
 
-  const rendererUrl = isDev
-    ? "http://localhost:5173"
-    : new URL("../renderer/index.html", import.meta.url).toString();
-
-  window.loadURL(rendererUrl);
+  if (isDev) {
+    window.loadURL("http://localhost:5173");
+  } else {
+    window.loadFile(path.join(__dirname, "../renderer/index.html"));
+  }
   window.once("ready-to-show", () => window.show());
 
   window.on("close", (event) => {
